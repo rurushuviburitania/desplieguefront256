@@ -82,16 +82,7 @@
     <script src="js/request.js"></script>
     <script src="js/clientes.js"></script>
     
-    <script>
-        window.onload = function(){
-        let boton = document.getElementById('btn-editar')
-        const url = new URLSearchParams(window.location.search);
-        cargarDatos(url.get('id'));
-        boton.onclick= () =>{
-            modificarClientes(url.get('id'));
-        }
-     }
-    </script>
+    
 
     <footer class="footer">
         <p>© VetMed Designed by Sergio Chaux</p>
