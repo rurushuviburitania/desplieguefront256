@@ -2,9 +2,12 @@
 <html lang="en">
 
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Productos</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="tabla.css">
 </head>
 
 <body>
@@ -13,12 +16,12 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Menu</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" 
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <div class="navbar-nav">
                         <a class="nav-link" href="inicio.html">Inicio</a>
                         <a class="nav-link" aria-current="page" href="clientes.html">Clientes</a>
@@ -26,10 +29,10 @@
                         <a class="nav-link" href="inventario.html">Inventario</a>
                         <a class="nav-link" href="pqrs.html">PQRS</a>
                     </div>
-                
+
                 </div>
             </div>
-          </nav>
+        </nav>
     </header>
 
     <section class="container">
@@ -37,30 +40,31 @@
             <span class="fw-bold w-auto">Modulo Producto</span>
             <button class="btn btn-primary w-auto" onclick="window.location ='formProductos.html'">Agregar</button>
         </div>
-        <table class="table">
-            <thead>
-    
-                <tr class="table-dark">
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Descripción</th>
-                    <th scope="col">Código prod.</th>
-                    <th scope="col">Stock</th>
-                    <th scope="col">Precio</th>
-                    <th scope="col">Laboratorio</th>
-                    <th scope="col">Fecha de ingreso</th>
-                    <th scope="col">Fecha Vencimiento</th>
-                    <th scope="col">Imagen</th>
-                    <th scope="col">Acciones</th>
-                </tr>
-            </thead>
-            <tbody id="productos-table">
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr class="table-dark">
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Código prod.</th>
+                        <th scope="col">Stock</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Laboratorio</th>
+                        <th scope="col">Fecha de ingreso</th>
+                        <th scope="col">Fecha Vencimiento</th>
+                        <th scope="col">Imagen</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="productos-table">
+                </tbody>
+            </table>
+        </div>
     </section>
     <script src="js/request.js"></script>
     <script src="js/productos.js"></script>
     <script>
-        window.onload = function(){
+        window.onload = function () {
             mostrarProductos();
         }
     </script>

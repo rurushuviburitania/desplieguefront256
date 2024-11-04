@@ -1,5 +1,5 @@
+const url = 'https://pruebabackend-dx3z.onrender.com/api/';
 //const url = 'http://localhost:5000/api/';
-const url= 'https://desplieguebackend256.onrender.com/api';
 
 function sendRequest(endPoint, method, data){
     let request = new XMLHttpRequest();
@@ -9,5 +9,3 @@ function sendRequest(endPoint, method, data){
     request.send(data ? JSON.stringify(data): data);
     return request
 }
-
-
