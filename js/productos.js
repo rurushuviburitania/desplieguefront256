@@ -6,6 +6,7 @@ function mostrarProductos(){
     let data = request.response;
     //console.log(data);  //saber si esta trayendo los datos de la base de datos
     data.forEach(element => {
+        let fechaVencimiento = element.fechaVencimiento ? new Date(element.fechaVencimiento).toISOString().split('T')[0] : '';
         table.innerHTML += `
         <tr class="table-dark">
             <td>${element.nombre}</td>
@@ -15,7 +16,7 @@ function mostrarProductos(){
             <td>${element.precio}</td>
             <td>${element.laboratorio}</td>
             <td>${element.ingreso}</td>
-            <td>${element.fechaVencimiento}</td>
+            <td>${fechaVencimiento}</td>
             <td>${element.ima}</td>
             <td>
                 <button type="button" class="btn btn-primary w-auto" onclick="window.location ='/formProductosEdit.html?id=${element._id}'">Editar</button>
@@ -84,13 +85,14 @@ function cargarDatos(id){
         ing.value = data.ingreso
         fec.value = data.fechaVencimiento
         ima.value = data.ima
-        
         console.log(data)
         if (data.ingreso) {
-            ing.value = data.ingreso.split('T')[0];
+            if (data.ingreso) {
+            ing.value = new Date(data.ingreso).toISOString().slice(0, 16); // Ajustar a formato datetime-local
+        }
         }
         if (data.fechaVencimiento) {
-            fec.value = data.fechaVencimiento.split('T')[0];
+            fec.value = data.fechaVencimiento ? new Date(data.fechaVencimiento).toISOString().split('T')[0] : '';
         }
     }
     request.onerror = function(){
@@ -109,7 +111,7 @@ function modificarProductos(id){
     let fec = document.getElementById('fechaVencimiento-f').value
     let ima = document.getElementById('ima-i').value
     let data = {'nombre':nom, 'descripcion':des, 'codigo':cod, 'stock':sto, 'precio':pre, 'laboratorio':lab, 'ingreso':ing, 'fechaVencimiento':fec, 'ima':ima}
-    let request = sendRequest('productos/', 'POST', data);
+    let request = sendRequest('productos/'+id, 'PUT', data);
     request.onload = function(){
         window.location='productos.html'
     }
