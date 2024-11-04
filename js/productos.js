@@ -107,6 +107,7 @@ function modificarProductos(id){
     let lab = document.getElementById('laboratorio-l').value
     let ing = document.getElementById('ingreso-i').value
     let fec = document.getElementById('fechaVencimiento-f').value
+    let ima = document.getElementById('ima-i').value
     let data = {'nombre':nom, 'descripcion':des, 'codigo':cod, 'stock':sto, 'precio':pre, 'laboratorio':lab, 'ingreso':ing, 'fechaVencimiento':fec, 'ima':ima}
     let request = sendRequest('productos/', 'POST', data);
     request.onload = function(){
